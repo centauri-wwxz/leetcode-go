@@ -7,8 +7,8 @@ package array
 //
 // reference:https://leetcode.com/problems/remove-duplicates-from-sorted-array/
 // 思路:
-// 得到新的不重复数组的长度, 也就是原数组不相同元素的个数, 使用一个额外的计数器即可完成.
-// 正常想法: 遍历数组, 如果两个元素相同, 更新数组, 这个时候需要用到 slice 操作, 比较耗时
+// 交换元素的值, 得到新的不重复数组的长度, 也就是原数组不相同元素的个数, 使用一个额外的计数器即可完成.
+// 原地操作: 切片不可以拼装或者重组, 只能交换索引的值.
 
 // RemoveDuplicates 删除排序数组中的重复项
 func RemoveDuplicates(nums []int) int {
@@ -23,15 +23,4 @@ func RemoveDuplicates(nums []int) int {
 		}
 	}
 	return i + 1
-}
-
-// 切片操作比较耗时
-func removeDuplicates2(nums []int) int {
-	for i := 1; i < len(nums); i++ {
-		if nums[i] == nums[i-1] {
-			nums = append(nums[:i], nums[i+1:]...)
-			i--
-		}
-	}
-	return len(nums)
 }
