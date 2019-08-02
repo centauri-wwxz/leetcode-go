@@ -37,8 +37,12 @@ func NextPermutation(nums []int) {
 			}
 
 			// reverse the nums[i:]
-			for k := i; k <= (len(nums)-1+i)/2; k++ {
-				nums[k], nums[len(nums)-1+i-k] = nums[len(nums)-1+i-k], nums[k]
+			low := i
+			high := len(nums) - 1
+			for low < high {
+				nums[low], nums[high] = nums[high], nums[low]
+				low++
+				high--
 			}
 			break
 		}
