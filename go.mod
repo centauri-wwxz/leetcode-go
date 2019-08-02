@@ -1,3 +1,3 @@
-module github.com/Hawken94/leetcode-go
+module github.com/centauri-wwxz/leetcode-go
 
 go 1.12
